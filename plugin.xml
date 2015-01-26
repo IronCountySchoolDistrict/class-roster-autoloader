@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://plugin.powerschool.pearson.com"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        description="Preload parameters for parameters.."
+        description="Preload parameters for reports."
         name="Class Roster Autoloader"
         version="2.1"
         xsi:schemaLocation="http://plugin.powerschool.pearson.com plugin.xsd">
