@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!-- Class Roster Auto-Loader v2.1
+original customization by Nick Peronti, NickTech.org
+save this file, load_report_menu.html, and roster_settings.html to data/custom/web_root/admin/reports
+updated for PS version 7.x October 2011 
+-->
+
+<html>
+<!-- non framed -->
+<head>
+<title>~[text:psx.html.admin_reports.classrosters.class_rosters_pdf]</title>
+~[wc:UI_js_panel_resize]
+~[wc:UI_css_panel_resize]
+~[wc:commonscripts]
+<link href="/images/css/screen.css" rel="stylesheet" media="screen">
+<link href="/images/css/print.css" rel="stylesheet" media="print">
+
+<script type="text/javascript">
+/* Widths Status Text */
+/* Works on all browsers */
+
+function updateWidth()
+{
+	var widths = document.getElementById( "cr1listingdef" ).value.split('\\');
+	var total = 0;
+	var times = 0;
+	for( var i = 2; i < widths.length; i += 3 )
+	{
+		++times;
+		var n = parseFloat(widths[i]);
+		if( !isNaN( n ) )
+			total += n;
+	}
+	document.getElementById( "widthSum" ).innerHTML = total;
+	var margintotals = 0;
+	var n = parseFloat(document.getElementById( "cr1vrulewidth" ).value);
+	if( !isNaN( n ) )
+		margintotals += n;
+	n = parseFloat(document.getElementById( "cr1vcellpadding" ).value);
+	if( !isNaN( n ) )
+		margintotals += n;
+	margintotals = (margintotals * (times - 1))/72.0;
+	
+	n = parseFloat(document.getElementById( "cr1leftmargin" ).value);
+	if( !isNaN( n ) )
+		margintotals += n;
+	n = parseFloat(document.getElementById( "cr1rightmargin" ).value);
+	if( !isNaN( n ) )
+		margintotals += n;
+	
+	document.getElementById( "widthSumM" ).innerHTML = total + margintotals;
+}
+
+/* Class Roster Quick Loader*/
+/* Works on all browsers */
+function loadReport()
+{
+	var reportType = document.getElementById( "LoadReport" ).value;
+	
+~[x:insertfile;roster_settings.html]
+updateWidth()
+	}
+</script>
+</head>
+
+<body onLoad="updateWidth()">
+<style>
+    div.padding {  
+      padding-top: 10px;  
+      padding-right: 15px;  
+      }
+</style>
+<script type="text/javascript" src="/scripts/timeentry_widget.js" ></script>
+
+<form action="/admin/reportqueue/home.html" method="POST">
+~[wc:admin_header_css]<!-- breadcrumb start --><a href="/admin/home.html" target="_top">~[text:psx.html.admin_reports.classrosters.start_page]</a> &gt; <a href="/admin/reports/home.html">~[text:psx.html.admin_reports.classrosters.reports]</a> &gt; <a href="/admin/reports/runreports.html">~[text:psx.html.admin_reports.classrosters.run_reports]</a> &gt;~[text:psx.html.admin_reports.classrosters.class_rosters_pdf1]<!-- breadcrumb end -->~[wc:admin_navigation_css]
+
+<h1>~[text:psx.html.admin_reports.classrosters.class_rosters_pdf2]</h1><!-- start of content and bounding box -->
+<div class="box-round">
+
+<!-- the following code inserts the Load Report menu -->
+<div class="padding" align="right">
+	~[x:insertfile;load_report_menu.html]
+</div>
+<table border="0" cellspacing="0" cellpadding="4">
+<tr bgcolor="#edf3fe">
+<td class="bold">~[text:psx.html.admin_reports.classrosters.print_rosters_for]<br>~[text:psx.html.admin_reports.classrosters.hold_the]~[if.mac]~[text:psx.html.admin_reports.classrosters.command][else]~[text:psx.html.admin_reports.classrosters.ctrl][/if]~[text:psx.html.admin_reports.classrosters.key_to_make_multiple_selections]</td>
+<td>~[x:teacherpopup;size=6;multiple;noalloption;currentclasses]</td>
+</tr>
+<tr>
+<td class="bold">~[text:psx.html.admin_reports.classrosters.meetings_leave_unchecked_for_all]</td>
+<td>~[x:scheduleBitmap2Grid;noTable;cr1grid;user]</td>
+</tr>
+<tr bgcolor="#edf3fe">
+<td class="bold">~[text:psx.html.admin_reports.classrosters.include_students_who]</td>
+<td>
+	<input type="radio" name="[prefuser]cr1howtoselect" value="normal" checked>~[text:psx.html.admin_reports.classrosters.are_currently_enrolled_in_class]
+	<br>
+	<input type="radio" name="[prefuser]cr1howtoselect" value="eao">~[text:psx.html.admin_reports.classrosters.were_enrolled_on]<input type="text" class="psDateWidget" name="[prefuser]cr1eaodate" value="~[short.date]" size="10" onChange="checkDates('~(JSFieldParam;[prefuser]cr1eaodate)');">
+	<br>
+	<input type="radio" name="[prefuser]cr1howtoselect" value="daterange">~[text:psx.html.admin_reports.classrosters.were_enrolled_any_time_between]<input type="text" class="psDateWidget" name="[prefuser]cr1begdate" value="" size="10" onChange="checkDates('~(JSFieldParam;[prefuser]cr1begdate)');">
+	~[text:psx.html.admin_reports.classrosters.and]<input type="text" class="psDateWidget" name="[prefuser]cr1enddate" value="" size="10" onChange="checkDates('~(JSFieldParam;[prefuser]cr1enddate)');"></td>
+</tr>
+<tr>
+<td class="bold">~[text:psx.html.admin_reports.classrosters.heading_font]</td>
+<td><select name="[prefuser]cr1headingfont" id="cr1headingfont" special="fontlist" default="Times"><option></select></td>
+</tr>
+<tr bgcolor="#edf3fe">
+<td class="bold">~[text:psx.html.admin_reports.classrosters.size_line_height_style]</td>
+<td><input type="text" name="[prefuser]cr1headingfontsize" id="cr1headingfontsize" value="18" size="4"> <input type="text" name="[prefuser]cr1headinglineheight" id="cr1headinglineheight" value="" size="4">~[text:psx.html.admin_reports.classrosters.points_nbsp]<input type="checkbox" name="[prefuser]cr1headingfb" id="cr1headingfb" value="value">~[text:psx.html.admin_reports.classrosters.bold_nbsp]<input type="checkbox" name="[prefuser]cr1headingfi" id="cr1headingfi" value="value">~[text:psx.html.admin_reports.classrosters.italic_nbsp]<input type="checkbox" name="[prefuser]cr1headingfu" id="cr1headingfu" value="value">~[text:psx.html.admin_reports.classrosters.underline]</td>
+
+</tr>
+<tr>
+<td class="bold">~[text:psx.html.admin_reports.classrosters.print_heading_on]</td>
+<td><select name="[prefuser]cr1headingoption" default="first"><option value="first">~[text:psx.html.admin_reports.classrosters.first_page_of_each_class]<option value="all">~[text:psx.html.admin_reports.classrosters.all_pages]<option value="none">~[text:psx.html.admin_reports.classrosters.do_not_print_heading]</select></td>
+</tr>
+<tr bgcolor="#edf3fe">
+<td class="bold">~[text:psx.html.admin_reports.classrosters.heading_text_]<a href="" onclick="return ajaxpage('/admin/fields/fieldlist_yui.html?filenum=3&inf=cr1heading&op=-1');" id="sb1">~[text:psx.html.admin_reports.classrosters.fields]</a>)<br>~[text:psx.html.admin_reports.classrosters.enter_teachername_to_cause_the_teacher_name_to_appear_and_cl]</td>
+<td><textarea name="[prefuser]cr1heading" id="cr1heading" rows="6" cols="50"></textarea></td>
+</tr>
+<tr>
+<td class="bold">~[text:psx.html.admin_reports.classrosters.column_title_font]</td>
+<td><select name="[prefuser]cr1titlefont" id="cr1titlefont" special="fontlist" default="Helvetica"><option></select></td>
+</tr>
+<tr bgcolor="#edf3fe">
+<td class="bold">~[text:psx.html.admin_reports.classrosters.size_line_height_style1]</td>
+<td><input type="text" name="[prefuser]cr1titlefontsize" id="cr1titlefontsize" value="12" size="4"> <input type="text" name="[prefuser]cr1titlelineheight" id="cr1titlelineheight" value="" size="4">~[text:psx.html.admin_reports.classrosters.points_nbsp1]<input type="checkbox" name="[prefuser]cr1titlefb" id="cr1titlefb" value="value" checked>~[text:psx.html.admin_reports.classrosters.bold_nbsp1]<input type="checkbox" name="[prefuser]cr1titlefi" id="cr1titlefi" value="value">~[text:psx.html.admin_reports.classrosters.italic_nbsp1]<input type="checkbox" name="[prefuser]cr1titlefu" id="cr1titlefu" value="value">~[text:psx.html.admin_reports.classrosters.underline1]</td>
+
+</tr>
+<tr>
+<td class="bold">~[text:psx.html.admin_reports.classrosters.print_column_titles_on]</td>
+<td><select name="[prefuser]cr1columntitleoption" default="all"><option value="all">~[text:psx.html.admin_reports.classrosters.all_pages1]<option value="first">~[text:psx.html.admin_reports.classrosters.first_page_of_each_class1]<option value="none">~[text:psx.html.admin_reports.classrosters.do_not_print_column_titles]</select></td>
+</tr>
+<tr bgcolor="#edf3fe">
+<td class="bold">~[text:psx.html.admin_reports.classrosters.roster_font]</td>
+<td><select name="[prefuser]cr1bodyfont" id="cr1bodyfont" special="fontlist" default="Times"><option></select></td>
+</tr>
+<tr>
+<td class="bold">~[text:psx.html.admin_reports.classrosters.size_line_height_style2]</td>
+
+<td><input type="text" name="[prefuser]cr1bodyfontsize" id="cr1bodyfontsize" value="10" size="4"> <input type="text" name="[prefuser]cr1bodylineheight" id="cr1bodylineheight" value="" size="4">~[text:psx.html.admin_reports.classrosters.points_nbsp2]<input type="checkbox" name="[prefuser]cr1bodyfb" id="cr1bodyfb" value="value">~[text:psx.html.admin_reports.classrosters.bold_nbsp2]<input type="checkbox" name="[prefuser]cr1bodyfi" id="cr1bodyfi" value="value">~[text:psx.html.admin_reports.classrosters.italic_nbsp2]<input type="checkbox" name="[prefuser]cr1bodyfu" id="cr1bodyfu" value="value">~[text:psx.html.admin_reports.classrosters.underline2]</td>
+</tr>
+<tr bgcolor="#edf3fe">
+<td class="bold">~[text:psx.html.admin_reports.classrosters.roster_columns_]<a href="" onclick="return ajaxpage('/admin/fields/fieldlist_yui.html?inf=cr1listingdef');" id="sb2">~[text:psx.html.admin_reports.classrosters.fields1]</a>)</td>
+<td>~[text:psx.html.admin_reports.classrosters.format_nbspnbspfield_name__column_title__column_width__align]<br><textarea name="[prefuser]cr1listingdef" id="cr1listingdef" rows="8" cols="50" onKeyUp="updateWidth()"></textarea><br />Total Column Width: <span id="widthSum">0</span> in &nbsp;&nbsp;&nbsp; Total (Marg/Pad): <span id="widthSumM"></span> in</td>
+</tr>
+<tr>
+<td class="bold">~[text:psx.html.admin_reports.classrosters.rule_width_points]</td>
+<td>~[text:psx.html.admin_reports.classrosters.horizontal]<input type="text" name="[prefuser]cr1hrulewidth" id="cr1hrulewidth" value=".5" size="4">~[text:psx.html.admin_reports.classrosters.vertical]<input type="text" name="[prefuser]cr1vrulewidth" id="cr1vrulewidth" value=".1" size="4" onKeyUp="updateWidth()"></td>
+</tr>
+<tr bgcolor="#edf3fe">
+<td class="bold">~[text:psx.html.admin_reports.classrosters.cell_padding_points]</td>
+<td>~[text:psx.html.admin_reports.classrosters.horizontal1]<input type="text" name="[prefuser]cr1hcellpadding" id="cr1hcellpadding" value="4" size="4">~[text:psx.html.admin_reports.classrosters.vertical1]<input type="text" name="[prefuser]cr1vcellpadding" id="cr1vcellpadding" value="2" size="4" onKeyUp="updateWidth()"></td>
+</tr>
+<tr>
+<td rowspan="2" class="bold">~[text:psx.html.admin_reports.classrosters.page_size]</td>
+<td><select name="[prefuser]cr1pagesize"><option value="" selected>~[text:psx.html.admin_reports.classrosters.letter___x_]<option value="legal">~[text:psx.html.admin_reports.classrosters.legal___x_]<option value="tabloid">~[text:psx.html.admin_reports.classrosters.tabloid__x_]<option value="a4">~[text:psx.html.admin_reports.classrosters.a_mm_x_mm]<option value="a3">~[text:psx.html.admin_reports.classrosters.a__mm_x_mm]<option value="a5">~[text:psx.html.admin_reports.classrosters.a_mm_x_mm1]<option value="b5">~[text:psx.html.admin_reports.classrosters.b_mm_x_mm]<option value="">---------------------<option value="custom">~[text:psx.html.admin_reports.classrosters.custom_inches]</select></td>
+</tr>
+<tr>
+<td>~[text:psx.html.admin_reports.classrosters.custom_size_nbsp_height]<input type="text" name="[prefuser]cr1pageheight" value="" size="5">~[text:psx.html.admin_reports.classrosters.width]<input type="text" name="[prefuser]cr1pagewidth" value="" size="5"></td>
+</tr>
+<tr bgcolor="#edf3fe">
+<td class="bold">~[text:psx.html.admin_reports.classrosters.margins_inches]</td>
+<td>~[text:psx.html.admin_reports.classrosters.left]<input type="text" name="[prefuser]cr1leftmargin" id="cr1leftmargin" value=".5" size="5" onKeyUp="updateWidth()">~[text:psx.html.admin_reports.classrosters.top]<input type="text" name="[prefuser]cr1topmargin" id="cr1topmargin" value=".5" size="5">~[text:psx.html.admin_reports.classrosters.right]<input type="text" name="[prefuser]cr1rightmargin" id="cr1rightmargin" value=".5" size="5" onKeyUp="updateWidth()">~[text:psx.html.admin_reports.classrosters.bottom]<input type="text" name="[prefuser]cr1bottommargin" id="cr1bottommargin" value=".5" size="5"></td>
+</tr>
+<tr>
+<td class="bold">~[text:psx.html.admin_reports.classrosters.orientation_scale]</td>
+<td><select name="[prefuser]cr1orientation" id="cr1orientation"><option value="Portrait (vertical)">~[text:psx.html.admin_reports.classrosters.portrait_vertical]<option value="Landscape (horizontal)">~[text:psx.html.admin_reports.classrosters.landscape_horizontal]</select> <input type="text" name="[prefuser]cr1reduction" value="100" size="4"></td>
+</tr>
+<tr bgcolor="#edf3fe">
+<td class="bold">~[text:psx.html.admin_reports.classrosters.watermark_text]</td>
+<td><select name="watermark"><option><option value=Draft>~[text:psx.html.admin_reports.classrosters.draft]<option value=Confidential>~[text:psx.html.admin_reports.classrosters.confidential]<option value=Unofficial>~[text:psx.html.admin_reports.classrosters.unofficial]<option value=Copy>~[text:psx.html.admin_reports.classrosters.copy]<option value="File Copy">~[text:psx.html.admin_reports.classrosters.file_copy]<option value=Final>~[text:psx.html.admin_reports.classrosters.final]<option value="Internal Use Only">~[text:psx.html.admin_reports.classrosters.internal_use_only]<option value=Preliminary>~[text:psx.html.admin_reports.classrosters.preliminary]<option value=Private>~[text:psx.html.admin_reports.classrosters.private]<option value=Proof>~[text:psx.html.admin_reports.classrosters.proof]<option value=Sample>~[text:psx.html.admin_reports.classrosters.sample]<option value="">--------------<option value=Custom:>~[text:psx.html.admin_reports.classrosters.custom]</select><br><input type="text" name="watermarkcustom" value="" size="20" maxlength="31"></td>
+</tr>
+<tr>
+<td class="bold">~[text:psx.html.admin_reports.classrosters.watermark_mode]</td>
+<td><select name="overlay"><option value="true">~[text:psx.html.admin_reports.classrosters.overlay]<option value="false">~[text:psx.html.admin_reports.classrosters.watermark]</select></td>
+</tr>
+<tr bgcolor="#edf3fe">
+<td class="bold">~[text:psx.html.admin_reports.classrosters.when_to_print]</td>
+<td><select name="printwhen"><option value="2">~[text:psx.html.admin_reports.classrosters.asap]<option value="3">~[text:psx.html.admin_reports.classrosters.at_night]<option value="4">~[text:psx.html.admin_reports.classrosters.on_weekend]<option value="5">~[text:psx.html.admin_reports.classrosters.on_specific_datetime]</select><br><input type="text" class="psDateWidget" name="printdate" value="" size="10" onChange="checkDates('printdate');">  &nbsp;/&nbsp; <input name="printtime" type="text" class="timeEntry5" size="10"/></td>
+</tr>
+<tr>
+<td class="bold">~[text:psx.html.admin_reports.classrosters.report_output_locale]</td>
+<td>~[wc:select_report_request_locale]</td>
+<tr>
+</table>
+<br>
+
+<div class="button-row"><input type="hidden" name="ac" value="prim"><input type="hidden" name="ac" value="printclassrosters2"><input type="hidden" name="reportname" value="psx.rpt.admin_reports.classrosters.class_rosters"><input type="hidden" name="reporttype" value="5100">~[submitbutton]</div>
+</div>
+<br>
+<!-- end of content of bounding box -->
+
+~[wc:admin_footer_css]
+</form>
+
+</body>
+</html><!-- non framed -->

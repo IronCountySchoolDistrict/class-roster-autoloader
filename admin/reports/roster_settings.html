@@ -1,0 +1,227 @@
+<!-- Add/remove/change the variables below to alter the pre-defined rosters -->
+<!-- If you wish to add a completely new roster, copy and paste everything inbetween the {} brackets and modify the values -->
+<!-- The predefined values are in the exact order as they apear on the Class Roster page in PS -->
+
+	if( reportType == "classContact" )
+	{
+		document.getElementById( "cr1headingfont" ).value = "Times";
+		document.getElementById( "cr1headingfontsize" ).value = 16;
+		document.getElementById( "cr1headinglineheight").value = 16;
+		document.getElementById( "cr1headingfb" ).checked = true;
+		document.getElementById( "cr1headingfi" ).checked = false;
+		document.getElementById( "cr1headingfu" ).checked = false;
+		document.getElementById( "cr1heading" ).value = "<center>Class Contact Information - ~" + "(teachername)\nEnrollment:~" + "(No_of_students) Room:~" + "(room)<\/center>";
+		
+		document.getElementById( "cr1titlefont" ).value = "Helvetica";
+		document.getElementById( "cr1titlefontsize" ).value = 12;
+		document.getElementById( "cr1titlelineheight").value = 12;
+		document.getElementById( "cr1titlefb" ).checked = true;
+		document.getElementById( "cr1titlefi" ).checked = false;
+		document.getElementById( "cr1titlefu" ).checked = false;
+		
+		document.getElementById( "cr1bodyfont" ).value = "Times";
+		document.getElementById( "cr1bodyfontsize" ).value = 10;
+		document.getElementById( "cr1bodylineheight").value = 10;
+		document.getElementById( "cr1bodyfb" ).checked = false;
+		document.getElementById( "cr1bodyfi" ).checked = false;
+		document.getElementById( "cr1bodyfu" ).checked = false;
+		
+		document.getElementById( "cr1listingdef" ).value = "last_name\\Last\\.9\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "first_name\\First\\.7\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "home_phone\\Phone\\.9\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "mother\\Mother\\1.35\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "mothercell\\Mother Cell\\1\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "motherdayphone\\Mother Day\\1.5\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "father\\Father\\1.35\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "fathercell\\Father Cell\\1\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "fatherdayphone\\Father Day\\1.5\\l";
+		
+		document.getElementById( "cr1hrulewidth" ).value = 1;
+		document.getElementById( "cr1vrulewidth" ).value = 0;
+		document.getElementById( "cr1hcellpadding" ).value = 1;
+		document.getElementById( "cr1vcellpadding" ).value = 2;
+		
+		document.getElementById( "cr1leftmargin" ).value = .25;
+		document.getElementById( "cr1topmargin" ).value = .5;
+		document.getElementById( "cr1rightmargin" ).value = .25;
+		document.getElementById( "cr1bottommargin" ).value = .20;
+		
+		document.getElementById("cr1orientation").selectedIndex = 1;  
+		// 1 for landscape, 0 for portrait
+	}
+	else if( reportType == "generalClass" )
+	{
+		document.getElementById( "cr1headingfont" ).value = "Times";
+		document.getElementById( "cr1headingfontsize" ).value = 16;
+		document.getElementById( "cr1headinglineheight").value = 16;
+		document.getElementById( "cr1headingfb" ).checked = true;
+		document.getElementById( "cr1headingfi" ).checked = false;
+		document.getElementById( "cr1headingfu" ).checked = false;
+		document.getElementById( "cr1heading" ).value = "<center>General Class Information - ~" + "(teachername)\nEnrollment:~" + "(No_of_students) Room:~" + "(room)<\/center>";
+		
+		document.getElementById( "cr1titlefont" ).value = "Helvetica";
+		document.getElementById( "cr1titlefontsize" ).value = 12;
+		document.getElementById( "cr1titlelineheight").value = 12;
+		document.getElementById( "cr1titlefb" ).checked = true;
+		document.getElementById( "cr1titlefi" ).checked = false;
+		document.getElementById( "cr1titlefu" ).checked = false;
+		
+		document.getElementById( "cr1bodyfont" ).value = "Times";
+		document.getElementById( "cr1bodyfontsize" ).value = 10;
+		document.getElementById( "cr1bodylineheight").value = 10;
+		document.getElementById( "cr1bodyfb" ).checked = false;
+		document.getElementById( "cr1bodyfi" ).checked = false;
+		document.getElementById( "cr1bodyfu" ).checked = false;
+		
+		document.getElementById( "cr1listingdef" ).value = "last_name\\Last\\.9\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "first_name\\First\\.7\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "gender\\Sex\\.3\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "mailing_street\\Address\\1.85\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "mailing_city\\City\\.9\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "mailing_zip\\Zip\\.4\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "home_phone\\Phone\\.9\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "bus_route\\Bus Route\\.5\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "deviation\\D\\.2\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "dob\\DOB\\.8\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "mother\\Mother\\1.35\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "father\\Father\\1.35\\l\n";
+		
+		document.getElementById( "cr1hrulewidth" ).value = 1;
+		document.getElementById( "cr1vrulewidth" ).value = 0;
+		document.getElementById( "cr1hcellpadding" ).value = 1;
+		document.getElementById( "cr1vcellpadding" ).value = 2;
+		
+		document.getElementById( "cr1leftmargin" ).value = .25;
+		document.getElementById( "cr1topmargin" ).value = .5;
+		document.getElementById( "cr1rightmargin" ).value = .25;
+		document.getElementById( "cr1bottommargin" ).value = .20;
+		
+		document.getElementById("cr1orientation").selectedIndex = 1;  
+		// 1 for landscape, 0 for portrait
+	}
+	else if( reportType == "transportation" )
+	{
+		document.getElementById( "cr1headingfont" ).value = "Times";
+		document.getElementById( "cr1headingfontsize" ).value = 16;
+		document.getElementById( "cr1headinglineheight").value = 16;
+		document.getElementById( "cr1headingfb" ).checked = true;
+		document.getElementById( "cr1headingfi" ).checked = false;
+		document.getElementById( "cr1headingfu" ).checked = false;
+		document.getElementById( "cr1heading" ).value = "<center>Transportation Information - ~" + "(teachername)\nEnrollment:~" + "(No_of_students) Room:~" + "(room)<\/center>";
+		
+		document.getElementById( "cr1titlefont" ).value = "Helvetica";
+		document.getElementById( "cr1titlefontsize" ).value = 12;
+		document.getElementById( "cr1titlelineheight").value = 12;
+		document.getElementById( "cr1titlefb" ).checked = true;
+		document.getElementById( "cr1titlefi" ).checked = false;
+		document.getElementById( "cr1titlefu" ).checked = false;
+		
+		document.getElementById( "cr1bodyfont" ).value = "Times";
+		document.getElementById( "cr1bodyfontsize" ).value = 12;
+		document.getElementById( "cr1bodylineheight").value = 12;
+		document.getElementById( "cr1bodyfb" ).checked = false;
+		document.getElementById( "cr1bodyfi" ).checked = false;
+		document.getElementById( "cr1bodyfu" ).checked = false;
+		
+		document.getElementById( "cr1listingdef" ).value = "last_name\\Last\\1.25\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "first_name\\First\\1\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "bus_route\\Bus Route\\1\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "deviation\\Deviation\\1\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "comments\\Comments\\3\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "trans_comments\\Transportation Comments\\3\\l";
+		
+		document.getElementById( "cr1hrulewidth" ).value = 1;
+		document.getElementById( "cr1vrulewidth" ).value = 0;
+		document.getElementById( "cr1hcellpadding" ).value = 1;
+		document.getElementById( "cr1vcellpadding" ).value = 2;
+		
+		document.getElementById( "cr1leftmargin" ).value = .25;
+		document.getElementById( "cr1topmargin" ).value = .5;
+		document.getElementById( "cr1rightmargin" ).value = .25;
+		document.getElementById( "cr1bottommargin" ).value = .20;
+		
+		document.getElementById("cr1orientation").selectedIndex = 1;  
+		// 1 for landscape, 0 for portrait
+	}
+	else if( reportType == "SupplyDist" )
+	{
+		document.getElementById( "cr1headingfont" ).value = "Times";
+		document.getElementById( "cr1headingfontsize" ).value = 16;
+		document.getElementById( "cr1headinglineheight").value = 16;
+		document.getElementById( "cr1headingfb" ).checked = true;
+		document.getElementById( "cr1headingfi" ).checked = false;
+		document.getElementById( "cr1headingfu" ).checked = false;
+		document.getElementById( "cr1heading" ).value = "<center>School Supply Distribution - ~" + "(teachername)\nEnrollment:~" + "(No_of_students) Room:~" + "(room)<\/center>";
+		
+		document.getElementById( "cr1titlefont" ).value = "Helvetica";
+		document.getElementById( "cr1titlefontsize" ).value = 12;
+		document.getElementById( "cr1titlelineheight").value = 12;
+		document.getElementById( "cr1titlefb" ).checked = true;
+		document.getElementById( "cr1titlefi" ).checked = false;
+		document.getElementById( "cr1titlefu" ).checked = false;
+		
+		document.getElementById( "cr1bodyfont" ).value = "Times";
+		document.getElementById( "cr1bodyfontsize" ).value = 12;
+		document.getElementById( "cr1bodylineheight").value = 12;
+		document.getElementById( "cr1bodyfb" ).checked = false;
+		document.getElementById( "cr1bodyfi" ).checked = false;
+		document.getElementById( "cr1bodyfu" ).checked = false;
+		
+		document.getElementById( "cr1listingdef" ).value = "last_name\\Last\\1.25\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "first_name\\First\\1\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "calc_fee\\Calculator\\1\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "lock_fee\\Lock\\.25\\l\n";
+		document.getElementById( "cr1listingdef" ).value += "notebook_fee\\Assignment Notebook\\1.5\\l\n";
+		
+		document.getElementById( "cr1hrulewidth" ).value = 1;
+		document.getElementById( "cr1vrulewidth" ).value = 0;
+		document.getElementById( "cr1hcellpadding" ).value = 1;
+		document.getElementById( "cr1vcellpadding" ).value = 2;
+		
+		document.getElementById( "cr1leftmargin" ).value = 1.5;
+		document.getElementById( "cr1topmargin" ).value = .5;
+		document.getElementById( "cr1rightmargin" ).value = 1.5;
+		document.getElementById( "cr1bottommargin" ).value = .20;
+		
+		document.getElementById("cr1orientation").selectedIndex = 1;  
+		// 1 for landscape, 0 for portrait
+	}
+	else if( reportType == "classListPosting" )
+	{
+		document.getElementById( "cr1headingfont" ).value = "Times";
+		document.getElementById( "cr1headingfontsize" ).value = 16;
+		document.getElementById( "cr1headinglineheight").value = 16;
+		document.getElementById( "cr1headingfb" ).checked = true;
+		document.getElementById( "cr1headingfi" ).checked = false;
+		document.getElementById( "cr1headingfu" ).checked = false;
+		document.getElementById( "cr1heading" ).value = "<center>~" + "(teachername)\nClass List\nRoom: ~" + "(room) Students: ~" + "(No_of_students)</center>";
+		
+		document.getElementById( "cr1titlefont" ).value = "Helvetica";
+		document.getElementById( "cr1titlefontsize" ).value = 14;
+		document.getElementById( "cr1titlelineheight").value = 14;
+		document.getElementById( "cr1titlefb" ).checked = true;
+		document.getElementById( "cr1titlefi" ).checked = false;
+		document.getElementById( "cr1titlefu" ).checked = false;
+		
+		document.getElementById( "cr1bodyfont" ).value = "Times";
+		document.getElementById( "cr1bodyfontsize" ).value = 14;
+		document.getElementById( "cr1bodylineheight").value = 14;
+		document.getElementById( "cr1bodyfb" ).checked = false;
+		document.getElementById( "cr1bodyfi" ).checked = false;
+		document.getElementById( "cr1bodyfu" ).checked = false;
+		
+		document.getElementById( "cr1listingdef" ).value = "lastfirst\\Name\\7.5\\c";
+		
+		document.getElementById( "cr1hrulewidth" ).value = 0;
+		document.getElementById( "cr1vrulewidth" ).value = 0;
+		document.getElementById( "cr1hcellpadding" ).value = 0;
+		document.getElementById( "cr1vcellpadding" ).value = 0;
+		
+		document.getElementById( "cr1leftmargin" ).value = .5;
+		document.getElementById( "cr1topmargin" ).value = .5;
+		document.getElementById( "cr1rightmargin" ).value = .5;
+		document.getElementById( "cr1bottommargin" ).value = .2;
+		
+		document.getElementById("cr1orientation").selectedIndex = 1;  
+		// 1 for landscape, 0 for portrait
+	}

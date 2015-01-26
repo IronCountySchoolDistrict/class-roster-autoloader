@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://plugin.powerschool.pearson.com"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        description="This custom class roster page allows a powerschool admin to pre load all the parameters into a javascript allowing the office staff to simply pick which roster they would like to run through a drop down box."
+        name="Class Roster Autoloader"
+        version="2.1"
+        xsi:schemaLocation="http://plugin.powerschool.pearson.com plugin.xsd">
+    <publisher name="Iron County School District Data Team">
+        <contact email="data@ironmail.org"/>
+    </publisher>
+</plugin>
